@@ -11,7 +11,7 @@ module.exports.gitHerald = (event, context, callback) => {
   var githubEvent = JSON.parse(event.body);
 
   if ((settings.users.indexOf(githubEvent.sender.login) > -1) && (githubEvent.action == "opened" || githubEvent.action == 'reopened')) {
-   var message = "@here " + githubEvent.sender.login + " just " + githubEvent.action + " a pull request for " + githubEvent.repository.name;
+   var message = "<!here|here> " + githubEvent.sender.login + " just " + githubEvent.action + " a pull request for " + githubEvent.repository.name;
 
     slack.api('chat.postMessage', {
       text: message + " : " + githubEvent.pull_request.url,
