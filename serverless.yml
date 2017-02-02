@@ -59,6 +59,8 @@ provider:
 functions:
   gitHerald:
     handler: handler.gitHerald
+    events:
+      - http: POST git-herald
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
