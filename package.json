@@ -1,0 +1,17 @@
+{
+  "name": "git-herald",
+  "version": "0.0.1",
+  "description": "github lambda hook to chat events to company chat",
+  "author": "ethan@bypassmobile.com",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/texasjusticar/git-herald/"
+  },
+  "keywords": [],
+  "devDependencies": {},
+  "dependencies": {
+    "slack-node": "~0.1.8"
+  }
+}
