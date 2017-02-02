@@ -7,11 +7,11 @@ var apiToken = settings.apiToken;
 var slack = new Slack(apiToken);
 
 module.exports.gitHerald = (event, context, callback) => {
-  var event = event.Records[0].Sns.Message;
-  var githubEvent = JSON.parse(event);
 
-  if (settings.users.indexOf(githubEvent.sender.login) > -1) && (githubEvent.action == "opened") {
-    var message = githubEvent.sender.login + " just opened a pull request for " + githubEvent.repository.name
+  var githubEvent = JSON.parse(event.body);
+
+  if ((settings.users.indexOf(githubEvent.sender.login) > -1) && (githubEvent.action == "opened" || githubEvent.action == 'reopened')) {
+   var message = "@here " + githubEvent.sender.login + " just " + githubEvent.action + " a pull request for " + githubEvent.repository.name;
 
     slack.api('chat.postMessage', {
       text: message + " : " + githubEvent.pull_request.url,
