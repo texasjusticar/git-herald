@@ -1,0 +1,5 @@
+{
+  "apiToken": "sekret",
+  "channel": "coders",
+  "users": ["neo", "trinity", "morpheus"]
+}
