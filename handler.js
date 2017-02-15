@@ -14,7 +14,7 @@ module.exports.gitHerald = (event, context, callback) => {
    var message = "<!here|here> " + githubEvent.sender.login + " just " + githubEvent.action + " a pull request for " + githubEvent.repository.name;
 
     slack.api('chat.postMessage', {
-      text: message + " : " + githubEvent.pull_request.url,
+      text: message + " : " + githubEvent.pull_request.html_url,
       channel: settings.channel
     }, function(err, response){
       console.log(response);
